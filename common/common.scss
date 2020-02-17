@@ -1,0 +1,156 @@
+@import "common/foundation/variables";
+
+@import url("https://use.typekit.net/ega1ylg.css");
+
+// set sitewide font to benton sans
+html {
+  font-family: benton-sans, sans-serif;
+  font-weight: 500;
+  font-style: normal;
+}
+
+// Alternative row colors
+tbody {  
+  tr:nth-child(odd) {
+    background-color: rgba($primary-very-low,0.25);
+  }
+}
+
+// Header background color
+.d-header {
+  box-shadow: none;
+  .panel .d-header-icons .d-icon {
+    color: $primary;
+  }
+
+  .d-header-icons .avatar {
+    border: 2px solid $primary;
+  }
+}
+
+// Remove Border on Active Header Icons
+.drop-down-mode .d-header-icons .active .icon {
+  border: none;
+}
+
+// Drop down menu styling
+.menu-panel {
+  border: 1px solid $primary-medium;
+  border-radius: 8px;
+  margin: 10px 0;
+}
+
+.d-header-icons .icon:hover, .d-header-icons .icon:focus,
+.d-header-icons .icon:active {
+  background-color: $secondary;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.2857em;
+  height: 2.2857em;
+  padding: 0.2143em;
+  text-decoration: none;
+  cursor: pointer;
+  border-top: 1px solid transparent;
+  border-left: 1px solid transparent;
+  border-right: 1px solid transparent;
+  transition: all linear 0.15s;
+  outline: none;
+}
+
+.drop-down-mode .d-header-icons .active .icon .d-icon {
+  color: $primary;
+}
+
+// Adjust Active nav pill design
+.nav-pills > li a.active {
+  background-color: $secondary !important;
+  color: $primary;
+  font-weight: 700;
+  border-bottom: 3px solid black;
+  &:hover {
+    text-decoration: none;
+    border-bottom: 3px solid black;
+  }
+}
+.nav-pills > li a:hover {
+  background-color: $secondary !important;
+  border-bottom: 3px solid black;
+  color: $primary;
+}
+
+// create topic button edits 
+#create-topic {
+  border-radius: 8px;
+  font-weight: 700;
+  background-color: $success;
+  border: 2px solid $primary;
+  transition: none;
+  box-shadow: 4px 4px 0 $primary;
+  svg.d-icon {
+    color: $primary;
+  }
+  &:hover {
+    color: $primary;
+    box-shadow: 2px 2px 0 $primary;
+  }
+}
+
+// admin dropdown buton categories
+.list-controls .select-kit.categories-admin-dropdown button {
+  border-radius: 8px;
+  font-weight: 700;
+  background-color: $success;
+  border: 2px solid $primary;
+  transition: none;
+  box-shadow: 4px 4px 0 $primary;
+  svg.d-icon {
+    color: $primary;
+  }
+  &:hover {
+    color: $primary;
+    box-shadow: 2px 2px 0 $primary;
+  }
+}
+
+
+// focus text input edits
+input[type="text"]:focus, input[type="password"]:focus,
+input[type="datetime"]:focus, input[type="datetime-local"]:focus,
+input[type="date"]:focus, input[type="month"]:focus,
+input[type="time"]:focus, input[type="week"]:focus,
+input[type="number"]:focus, input[type="email"]:focus,
+input[type="url"]:focus, input[type="search"]:focus,
+input[type="tel"]:focus, input[type="color"]:focus,
+textarea:focus {
+  border-color: $primary;
+  box-shadow: none;
+  outline: 0;
+}
+
+// Hihglighted row in Select Kit Changes
+.select-kit .select-kit-row.is-highlighted {
+  background-color: $success-medium;
+}
+
+// Topic Title Link
+// a.title {
+//   font-weight: 700;
+//   color: $primary;
+// }
+
+Unread notifications 
+.d-header-icons .unread-notifications {
+  background-color: $tertiary;
+}
+
+// private messages
+.unread-private-messages {
+  background-color: $success;
+  text-shadow: 1px 2px 6px rgba(0,0,0,1);
+}
+
+// TODO
+// fix movement on :active transition header icons
+//  - small pixel adjusment?
