@@ -202,6 +202,40 @@ textarea:focus {
   overflow: hidden;
 }
 
+// Customize Categories Page
+// table.category-list {
+//   margin-top: 25px;
+  
+//   thead {
+//     display: none;
+//   }
+
+//   tbody {
+//     display: flex;
+//     flex-direction: row;
+//     width: 100%;
+//     flex-wrap: wrap;
+
+//     tr:nth-child(-n+7) {
+//       background-color: white;
+//       border: 1px solid $primary;
+//       width: 20%;
+//       margin: 15px 15px;
+//       display: flex;
+//       padding: 5px;
+
+//       td.category {
+//         border: none;
+//       }
+
+//       td.topics::before {
+//         content: "Topics"
+//       }
+//     }
+    
+//   }
+// }
+
 // TODO
 // fix movement on :active transition header icons
 //  - small pixel adjusment?
