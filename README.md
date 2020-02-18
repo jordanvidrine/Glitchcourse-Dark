@@ -1,1 +1,1 @@
-A Discourse theme based on the branding of **[Glitch](www.glitch.com)**
+A Discourse theme inspired by **[Glitch](www.glitch.com)**
