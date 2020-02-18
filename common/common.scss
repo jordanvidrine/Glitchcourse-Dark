@@ -30,7 +30,8 @@ tbody {
 
 // Remove Border on Active Header Icons
 .drop-down-mode .d-header-icons .active .icon {
-  border: none;
+  border-color: transparent;
+  background-color: $primary-low;
 }
 
 // Drop down menu styling
@@ -97,6 +98,34 @@ tbody {
   }
 }
 
+// Primary Button Styling
+:not(.d-editor-button-bar) > .btn {
+  font-weight: bold;
+  border-radius: 8px;
+  border: 2px solid $primary;
+  transition: none;
+  .d-icon {
+    transition: none;
+  }
+  &.btn-primary {
+    background-color: $success;
+    color: $primary;
+    box-shadow: 4px 4px 0 $primary;
+    transition: none;
+    .d-icon {
+      color: $primary;
+    }
+    &:hover {
+      background-color: $success;
+      color: $primary;
+      box-shadow: 2px 2px 0 $primary;
+      .d-icon {
+        color: $primary;
+      }
+    }
+  }
+}
+
 // admin dropdown buton categories
 .list-controls .select-kit.categories-admin-dropdown button {
   border-radius: 8px;
@@ -134,11 +163,25 @@ textarea:focus {
   background-color: $success-medium;
 }
 
-// Topic Title Link
-// a.title {
-//   font-weight: 700;
-//   color: $primary;
-// }
+// Modal Header close button
+.modal-header .modal-close {
+  padding: 2px;
+  border: none;
+  .d-icon {
+    color: $primary-low-mid;
+  }
+}
+
+// reply area / composer padding
+#reply-control .reply-area {
+  padding: 5px 15px 15px 15px;
+}
+
+// tag notifications button
+.tag-notifications-button .btn-default {
+  margin-left: 13px;
+  border: 2px solid $primary !important;
+}
 
 // Unread notifications 
 .d-header-icons .unread-notifications {
@@ -149,6 +192,14 @@ textarea:focus {
 .unread-private-messages {
   background-color: $success;
   text-shadow: 1px 2px 6px rgba(0,0,0,1);
+}
+
+// new category drop down
+.navigation-container .select-kit-body.ember-view {
+  transform: translate(-245px, 45px) !important;
+  border-radius: 8px !important;
+  border: 1px solid $primary;
+  overflow: hidden;
 }
 
 // TODO
