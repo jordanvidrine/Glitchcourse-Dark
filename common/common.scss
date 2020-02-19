@@ -138,12 +138,25 @@ tbody {
   border-radius: 0px !important;
 }
 
+.themes-tab {
+  border-right: 1px solid $primary;
+}
+
 .admin-customize .themes-list-header {
   border-top: 1px solid $primary;
   border-left: 1px solid $primary;
   border-right: 1px solid $primary;
   .themes-tab {
     border-right: 1px solid black;
+  }
+}
+
+.admin-customize .themes-list-container {
+  border: 1px solid $primary !important;
+  .themes-list-item {
+    border-bottom: 1px solid #e6e6e6;
+    border-right: none !important;
+    border-left: none !important;
   }
 }
 
