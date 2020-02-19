@@ -23,6 +23,14 @@
       color: $primary-medium;
       width: 20%;
       text-align: right;
+
+      .badge-notification.new-posts, .badge-notification.unread-posts {
+        background-color: $secondary;
+        color: $primary-medium;
+        text-align: right;
+        padding: 0px !important;
+      } 
+
     }
 
   }
