@@ -8,7 +8,7 @@
 
   .top-category {
     padding: 10px 10px 20px 10px;
-    width: 20%;
+    flex: 1 1 20%;
     margin: 15px 15px;
     border: 1px solid $primary;
     display: flex;
@@ -23,9 +23,6 @@
       color: $primary-medium;
       width: 20%;
       text-align: right;
-    }
-
-    .category-description {
     }
 
   }
