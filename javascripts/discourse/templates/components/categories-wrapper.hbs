@@ -1,18 +1,79 @@
 {{#if this.top}}
-  {{log "TOP CATEOGRIES RENDERED!"}}
-  <h1>Top Categories</h1>
+  <h1 class="top-categories-header"> - Most Popular - </h1>
   <div class="top-categories-wrapper">
-    {{#each this.topCat as |cat|}}
-    <div class="top-cat {{cat.name}}" style="background-color: #{{cat.color}}">
-      {{cat.name}}
+    {{#each this.topCat as |c|}}
+    <div class="top-category {{c.name}}" style="box-shadow: 4px 4px 0 #{{c.color}}">
+      <div class='top-category-column-one'>
+          {{category-title-link category=c}}
+        <div class="category-description">
+          {{{dir-span c.description_excerpt}}}
+        </div>
+
+        {{#if c.isGrandParent}}
+            <table class="category-list subcategories-with-subcategories">
+              <tbody>
+                {{#each c.subcategories as |subcategory|}}
+                  <tr 
+                    data-category-id={{subcategory.id}} 
+                    data-notification-level={{subcategory.notificationLevelString}} 
+                    class="{{if subcategory.description_excerpt 'has-description' 'no-description'}} {{if subcategory.uploaded_logo.url 'has-logo' 'no-logo'}}"
+                  >
+                    <td class="category" style={{border-color subcategory.color}}>
+                      {{category-title-link tagName="h4" category=subcategory}}
+                      {{#if subcategory.description_excerpt}}
+                        <div class="category-description subcategory-description">
+                          {{{dir-span subcategory.description_excerpt}}}
+                        </div>
+                      {{/if}}
+                      {{#if subcategory.subcategories}}
+                        <div class='subcategories'>
+                          {{#each subcategory.subcategories as |subsubcategory|}}
+                            {{#unless subsubcategory.isMuted}}
+                              <span class='subcategory'>
+                                {{category-title-before category=subsubcategory}}
+                                {{category-link subsubcategory hideParent="true"}}
+                              </span>
+                            {{/unless}}
+                          {{/each}}
+                        </div>
+                      {{else}}
+                        {{#if subcategory.description_excerpt}}
+                          <div class="category-description subcategory-description">
+                            {{{dir-span subcategory.description_excerpt}}}
+                          </div>
+                        {{/if}}
+                      {{/if}}
+                    </td>
+                  </tr>
+                {{/each}}
+              </tbody>
+            </table>
+          {{else if c.subcategories}}
+            <div class='subcategories'>
+              {{#each c.subcategories as |subcategory|}}
+                {{#unless subcategory.isMuted}}
+                  <span class='subcategory'>
+                    {{category-title-before category=subcategory}}
+                    {{category-link subcategory hideParent="true"}}
+                    {{category-unread category=subcategory}}
+                  </span>
+                {{/unless}}
+              {{/each}}
+            </div>
+          {{/if}}
+
+      </div>
+      <div class='top-category-column-two'>
+        <span class="topics-header">Topics</span>
+        <span class="topics-count">{{c.topic_count}}</span>
+      </div>
     </div>
     {{/each}}
   </div>
+  <h1 class="other-categories-header"> - Other - </h1>
 {{else}}
-  {{log "SUB CATEGORIES RENDERED!"}}
   <tbody aria-labelledby="categories-only-category">
     {{#each this.other as |c|}}
-      {{log c}}
       <tr 
         data-category-id={{c.id}} 
         data-notification-level={{c.notificationLevelString}} 

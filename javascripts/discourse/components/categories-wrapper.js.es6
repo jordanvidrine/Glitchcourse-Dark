@@ -7,13 +7,16 @@ export default Component.extend({
     this._super(...arguments)
 
     // sort categories by top 7
-    let categories = this.attrs.categories.value.content;
-    categories = categories.sort((a,b) => b.post_count - a.post_count)
+    if (settings.sort_popular_categories) {
+      let categories = this.attrs.categories.value.content;
+      categories = categories.sort((a,b) => b.post_count - a.post_count)
+    }
 
     this.setProperties({
       topCat: this.topCat(),
       other: this.cat(),
     })
+
   },
   topCat() {
     let { categories } = this.attrs;
