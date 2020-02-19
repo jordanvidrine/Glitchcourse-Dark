@@ -126,6 +126,13 @@ tbody {
   }
 }
 
+.close {
+  font-size: 1.5157em;
+  text-decoration: none;
+  cursor: pointer;
+  border: none !important;
+}
+
 // admin dropdown buton categories
 .list-controls .select-kit.categories-admin-dropdown button {
   border-radius: 8px;

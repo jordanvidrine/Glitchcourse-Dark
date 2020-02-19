@@ -1,0 +1,3 @@
+sort_categories:
+  default: true
+  description: 'Sort Categories List by amount of activity in each category.'
