@@ -133,6 +133,35 @@ tbody {
   border: none !important;
 }
 
+.themes-list-header > .btn {
+  border: none !important;
+  border-radius: 0px !important;
+}
+
+.themes-tab {
+  border-right: 1px solid $primary;
+}
+
+.admin-customize .themes-list-header {
+  border-top: 1px solid $primary;
+  border-left: 1px solid $primary;
+  border-right: 1px solid $primary;
+  border-bottom: none !important;
+  .themes-tab {
+    border-right: 1px solid black !important;
+  }
+}
+
+.admin-customize .themes-list-container {
+  border: 1px solid $primary !important;
+  .themes-list-item {
+    border-bottom: 1px solid #e6e6e6;
+    border-right: none !important;
+    border-left: none !important;
+  }
+}
+
+
 // admin dropdown buton categories
 .list-controls .select-kit.categories-admin-dropdown button {
   border-radius: 8px;
