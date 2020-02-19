@@ -146,6 +146,7 @@ tbody {
   border-top: 1px solid $primary;
   border-left: 1px solid $primary;
   border-right: 1px solid $primary;
+  border-bottom: none !important!;
   .themes-tab {
     border-right: 1px solid black;
   }
