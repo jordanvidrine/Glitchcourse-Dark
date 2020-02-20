@@ -17,12 +17,16 @@
 
     .top-category-column-one {
       width: 70%;
+      display: flex;
+      flex-direction: column;
     }
 
     .top-category-column-two {
       color: $primary-medium;
       width: 20%;
       text-align: right;
+      display: flex;
+      flex-direction: column;
 
       .badge-notification.new-posts, .badge-notification.unread-posts {
         background-color: $secondary;

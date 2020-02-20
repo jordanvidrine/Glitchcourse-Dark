@@ -99,10 +99,46 @@ tbody {
   }
 }
 
-// Primary Button Styling
-:not(.d-editor-button-bar) > .btn {
+// Select Kit Icon Styling
+.select-kit-header.single-select-header.btn-default {
   font-weight: bold;
   border-radius: 8px;
+  border: 2px solid $primary;
+  transition: none;
+  .d-icon {
+    transition: none;
+  }
+  &.btn-primary {
+    background-color: $success;
+    color: $primary;
+    box-shadow: 4px 4px 0 $primary;
+    transition: none;
+    .d-icon {
+      color: $primary;
+    }
+    &:hover {
+      background-color: $success;
+      color: $primary;
+      box-shadow: 2px 2px 0 $primary;
+      .d-icon {
+        color: $primary;
+      }
+    }
+  }
+}
+
+
+.d-editor-button-bar .btn {
+  border: none !important;
+  border-radius: 0px !important;
+}
+
+// Primary Button Styling
+.btn {
+  font-weight: bold;
+  &:not(.select-kit-header) {
+    border-radius: 8px;
+  }
   border: 2px solid $primary;
   transition: none;
   .d-icon {
@@ -228,18 +264,14 @@ textarea:focus {
 // private messages
 .unread-private-messages {
   background-color: $success;
-  text-shadow: 1px 2px 6px rgba(0,0,0,1);
+  color: $primary;
+  //text-shadow: 1px 2px 6px rgba(0,0,0,1);
 }
 
 // new category drop down
 .navigation-container .select-kit-body.ember-view {
-  transform: translate(-245px, 45px) !important;
+  transform: translate(0px, 45px) !important;
   border-radius: 8px !important;
   border: 1px solid $primary;
   overflow: hidden;
 }
-
-
-// TODO
-// fix movement on :active transition header icons
-//  - small pixel adjusment?
