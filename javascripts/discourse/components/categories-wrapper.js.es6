@@ -15,8 +15,17 @@ export default Component.extend({
     this.setProperties({
       topCat: this.topCat(),
       other: this.cat(),
+      topIsSelected: this.topIsSelected()
     })
 
+  },
+  topIsSelected() {
+    if (settings.sort_popular_categories) {
+      console.log('HEY')
+      return true;
+    } else {
+      return false;
+    }
   },
   topCat() {
     let { categories } = this.attrs;

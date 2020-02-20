@@ -1,5 +1,5 @@
 {{#if this.top}}
-  <h1 class="top-categories-header"> - Most Popular - </h1>
+  <h1 class="top-categories-header">{{if this.topIsSelected ' - Most Popular - ' ' - Featured Categories - '}}</h1>
   <div class="top-categories-wrapper">
     {{#each this.topCat as |c|}}
     <div class="top-category {{c.name}}" style="box-shadow: 4px 4px 0 #{{c.color}}">
@@ -71,7 +71,7 @@
     </div>
     {{/each}}
   </div>
-  <h1 class="other-categories-header"> - Other - </h1>
+  <h1 class="other-categories-header"> - Other Categories - </h1>
 {{else}}
   <tbody aria-labelledby="categories-only-category">
     {{#each this.other as |c|}}
