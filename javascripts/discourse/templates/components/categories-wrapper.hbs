@@ -1,5 +1,5 @@
 {{#if this.top}}
-  <h1 class="top-categories-header">{{if this.topIsSelected ' - Most Popular - ' ' - Featured Categories - '}}</h1>
+  <h1 class="top-categories-header">{{if this.topIsSelected ' - Most Popular - '}}</h1>
   <div class="top-categories-wrapper">
     {{#each this.topCat as |c|}}
     <div class="top-category {{c.name}}" style="box-shadow: 4px 4px 0 #{{c.color}}">
@@ -71,87 +71,104 @@
     </div>
     {{/each}}
   </div>
-  <h1 class="other-categories-header"> - Other Categories - </h1>
 {{else}}
-  <tbody aria-labelledby="categories-only-category">
-    {{#each this.other as |c|}}
-      <tr 
-        data-category-id={{c.id}} 
-        data-notification-level={{c.notificationLevelString}} 
-        class="{{if c.description_excerpt 'has-description' 'no-description'}} {{if c.uploaded_logo.url 'has-logo' 'no-logo'}}"
-      >
-        <td class="category" style={{border-color c.color}}>
-          {{category-title-link category=c}}
-          {{#if c.description_excerpt}}
-            <div class="category-description">
-              {{{dir-span c.description_excerpt}}}
-            </div>
+
+  {{#if this.other}}
+    <h1 class="other-categories-header"> - Other Categories - </h1>
+
+    <table class="category-list {{if showTopics 'with-topics'}}">
+
+      <thead>
+        <tr>
+          <th class="category"><span aria-role="heading" aria-level="2" id="categories-only-category">{{i18n 'categories.category'}}</span></th>
+          <th class="topics">{{i18n 'categories.topics'}}</th>
+          {{#if showTopics}}
+            <th class="latest">{{i18n 'categories.latest'}}</th>
           {{/if}}
-          {{#if c.isGrandParent}}
-            <table class="category-list subcategories-with-subcategories">
-              <tbody>
-                {{#each c.subcategories as |subcategory|}}
-                  <tr 
-                    data-category-id={{subcategory.id}} 
-                    data-notification-level={{subcategory.notificationLevelString}} 
-                    class="{{if subcategory.description_excerpt 'has-description' 'no-description'}} {{if subcategory.uploaded_logo.url 'has-logo' 'no-logo'}}"
-                  >
-                    <td class="category" style={{border-color subcategory.color}}>
-                      {{category-title-link tagName="h4" category=subcategory}}
-                      {{#if subcategory.description_excerpt}}
-                        <div class="category-description subcategory-description">
-                          {{{dir-span subcategory.description_excerpt}}}
-                        </div>
-                      {{/if}}
-                      {{#if subcategory.subcategories}}
-                        <div class='subcategories'>
-                          {{#each subcategory.subcategories as |subsubcategory|}}
-                            {{#unless subsubcategory.isMuted}}
-                              <span class='subcategory'>
-                                {{category-title-before category=subsubcategory}}
-                                {{category-link subsubcategory hideParent="true"}}
-                              </span>
-                            {{/unless}}
-                          {{/each}}
-                        </div>
-                      {{else}}
-                        {{#if subcategory.description_excerpt}}
-                          <div class="category-description subcategory-description">
-                            {{{dir-span subcategory.description_excerpt}}}
-                          </div>
-                        {{/if}}
-                      {{/if}}
-                    </td>
-                  </tr>
+        </tr>
+      </thead>
+
+      <tbody aria-labelledby="categories-only-category">
+        {{#each this.other as |c|}}
+          <tr 
+            data-category-id={{c.id}} 
+            data-notification-level={{c.notificationLevelString}} 
+            class="{{if c.description_excerpt 'has-description' 'no-description'}} {{if c.uploaded_logo.url 'has-logo' 'no-logo'}}"
+          >
+            <td class="category" style={{border-color c.color}}>
+              {{category-title-link category=c}}
+              {{#if c.description_excerpt}}
+                <div class="category-description">
+                  {{{dir-span c.description_excerpt}}}
+                </div>
+              {{/if}}
+              {{#if c.isGrandParent}}
+                <table class="category-list subcategories-with-subcategories">
+                  <tbody>
+                    {{#each c.subcategories as |subcategory|}}
+                      <tr 
+                        data-category-id={{subcategory.id}} 
+                        data-notification-level={{subcategory.notificationLevelString}} 
+                        class="{{if subcategory.description_excerpt 'has-description' 'no-description'}} {{if subcategory.uploaded_logo.url 'has-logo' 'no-logo'}}"
+                      >
+                        <td class="category" style={{border-color subcategory.color}}>
+                          {{category-title-link tagName="h4" category=subcategory}}
+                          {{#if subcategory.description_excerpt}}
+                            <div class="category-description subcategory-description">
+                              {{{dir-span subcategory.description_excerpt}}}
+                            </div>
+                          {{/if}}
+                          {{#if subcategory.subcategories}}
+                            <div class='subcategories'>
+                              {{#each subcategory.subcategories as |subsubcategory|}}
+                                {{#unless subsubcategory.isMuted}}
+                                  <span class='subcategory'>
+                                    {{category-title-before category=subsubcategory}}
+                                    {{category-link subsubcategory hideParent="true"}}
+                                  </span>
+                                {{/unless}}
+                              {{/each}}
+                            </div>
+                          {{else}}
+                            {{#if subcategory.description_excerpt}}
+                              <div class="category-description subcategory-description">
+                                {{{dir-span subcategory.description_excerpt}}}
+                              </div>
+                            {{/if}}
+                          {{/if}}
+                        </td>
+                      </tr>
+                    {{/each}}
+                  </tbody>
+                </table>
+              {{else if c.subcategories}}
+                <div class='subcategories'>
+                  {{#each c.subcategories as |subcategory|}}
+                    {{#unless subcategory.isMuted}}
+                      <span class='subcategory'>
+                        {{category-title-before category=subcategory}}
+                        {{category-link subcategory hideParent="true"}}
+                        {{category-unread category=subcategory}}
+                      </span>
+                    {{/unless}}
+                  {{/each}}
+                </div>
+              {{/if}}
+            </td>
+            <td class="topics">
+              <div title={{c.statTitle}}>{{{c.stat}}}</div>
+              {{category-unread category=c tagName="div" class="unread-new"}}
+            </td>
+            {{#if showTopics}}
+              <td class="latest">
+                {{#each c.featuredTopics as |t|}}
+                  {{featured-topic topic=t latestTopicOnly=latestTopicOnly}}
                 {{/each}}
-              </tbody>
-            </table>
-          {{else if c.subcategories}}
-            <div class='subcategories'>
-              {{#each c.subcategories as |subcategory|}}
-                {{#unless subcategory.isMuted}}
-                  <span class='subcategory'>
-                    {{category-title-before category=subcategory}}
-                    {{category-link subcategory hideParent="true"}}
-                    {{category-unread category=subcategory}}
-                  </span>
-                {{/unless}}
-              {{/each}}
-            </div>
-          {{/if}}
-        </td>
-        <td class="topics">
-          <div title={{c.statTitle}}>{{{c.stat}}}</div>
-          {{category-unread category=c tagName="div" class="unread-new"}}
-        </td>
-        {{#if showTopics}}
-          <td class="latest">
-            {{#each c.featuredTopics as |t|}}
-              {{featured-topic topic=t latestTopicOnly=latestTopicOnly}}
-            {{/each}}
-          </td>
-        {{/if}}
-      </tr>
-    {{/each}}
-  </tbody>
+              </td>
+            {{/if}}
+          </tr>
+        {{/each}}
+      </tbody>
+    </table>
+  {{/if}}
 {{/if}}

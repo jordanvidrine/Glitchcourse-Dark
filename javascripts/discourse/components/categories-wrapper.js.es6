@@ -21,20 +21,22 @@ export default Component.extend({
   },
   topIsSelected() {
     if (settings.sort_popular_categories) {
-      console.log('HEY')
       return true;
     } else {
       return false;
     }
   },
   topCat() {
+    let catCount = settings.top_category_count;
     let { categories } = this.attrs;
     categories = categories.value.content
-    return categories.slice(0,7)
+    return categories.slice(0,catCount)
   },
   cat() {
+    let catCount = settings.top_category_count;
     let { categories } = this.attrs;
     categories = categories.value.content
-    return categories.slice(7);
+    if (categories.slice(catCount).length === 0) return false;
+    return categories.slice(catCount);
   },
 });
