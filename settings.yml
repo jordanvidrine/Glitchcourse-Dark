@@ -1,3 +1,8 @@
 sort_popular_categories:
   default: true
-  description: 'If checked, the top 7 most posted in categories will appear as boxes at the top of the categories page. If not, the categories that appear in the boxes will be auto sorted by Discourse.'
+  description: 'Your "Upper Area" categories will be sorted by popularity/activity.'
+top_category_count:
+  type: integer
+  default: 7
+  min: 1
+  description: 'How many categories do you want displayed in the "Upper Area"?'
