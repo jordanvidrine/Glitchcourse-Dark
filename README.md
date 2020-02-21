@@ -1,1 +1,1 @@
-A Discourse theme inspired by **[Glitch](www.glitch.com)**
+A (Dark) Discourse theme inspired by **[Glitch](www.glitch.com)**

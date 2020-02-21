@@ -1,5 +1,5 @@
 {
-  "name": "Glitchcourse",
+  "name": "Glitchcourse Dark",
   "component": false,
   "license_url": "https://github.com/jordanvidrine/glitchcourse/blob/master/LICENSE",
   "about_url": "",
@@ -9,12 +9,12 @@
   "maximum_discourse_version": null,
   "color_schemes": {
     "So On Brand": {
-      "primary": "000000",
-      "secondary": "fffff",
+      "primary": "ffffff",
+      "secondary": "000000",
       "tertiary": "6356C7",
       "quaternary": "365EC9",
-      "header_background": "ffffff",
-      "header_primary": "000000",
+      "header_background": "000000",
+      "header_primary": "ffffff",
       "highlight": "FFFF00",
       "danger": "ff5555",
       "success": "83FFCD",

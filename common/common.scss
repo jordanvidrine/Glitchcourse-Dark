@@ -70,15 +70,15 @@ tbody {
   background-color: $secondary !important;
   color: $primary;
   font-weight: 700;
-  border-bottom: 3px solid black;
+  border-bottom: 3px solid $primary;
   &:hover {
     text-decoration: none;
-    border-bottom: 3px solid black;
+    border-bottom: 3px solid $primary;
   }
 }
 .nav-pills > li a:hover {
   background-color: $secondary !important;
-  border-bottom: 3px solid black;
+  border-bottom: 3px solid $primary;
   color: $primary;
 }
 
@@ -86,7 +86,7 @@ tbody {
 #create-topic {
   border-radius: 8px;
   font-weight: 700;
-  background-color: $success;
+  background-color: $secondary;
   border: 2px solid $primary;
   transition: none;
   box-shadow: 4px 4px 0 $primary;
@@ -109,7 +109,7 @@ tbody {
     transition: none;
   }
   &.btn-primary {
-    background-color: $success;
+    background-color: $secondary-low;
     color: $primary;
     box-shadow: 4px 4px 0 $primary;
     transition: none;
@@ -117,7 +117,7 @@ tbody {
       color: $primary;
     }
     &:hover {
-      background-color: $success;
+      background-color: $secondary-low;
       color: $primary;
       box-shadow: 2px 2px 0 $primary;
       .d-icon {
@@ -145,7 +145,7 @@ tbody {
     transition: none;
   }
   &.btn-primary {
-    background-color: $success;
+    background-color: $secondary;
     color: $primary;
     box-shadow: 4px 4px 0 $primary;
     transition: none;
@@ -153,7 +153,7 @@ tbody {
       color: $primary;
     }
     &:hover {
-      background-color: $success;
+      background-color: $secondary-low;
       color: $primary;
       box-shadow: 2px 2px 0 $primary;
       .d-icon {
@@ -203,7 +203,7 @@ tbody {
 .list-controls .select-kit.categories-admin-dropdown button {
   border-radius: 8px;
   font-weight: 700;
-  background-color: $success;
+  background-color: $secondary;
   border: 2px solid $primary;
   transition: none;
   box-shadow: 4px 4px 0 $primary;
@@ -229,11 +229,6 @@ textarea:focus {
   border-color: $primary;
   box-shadow: none;
   outline: 0;
-}
-
-// Hihglighted row in Select Kit Changes
-.select-kit .select-kit-row.is-highlighted {
-  background-color: $success-medium;
 }
 
 // Modal Header close button
